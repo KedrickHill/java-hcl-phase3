@@ -1,9 +1,7 @@
 package com.example.SpringExample.Beans;
 
 import org.springframework.context.ApplicationEvent;
-import org.springframework.stereotype.Component;
 
-@Component
 public class CustomEvent extends ApplicationEvent {
 
 	public CustomEvent(Object source) {
