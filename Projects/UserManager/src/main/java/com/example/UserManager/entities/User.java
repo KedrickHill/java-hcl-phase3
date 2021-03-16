@@ -19,6 +19,18 @@ public class User { //The Entity of a User; What it is.
 	
 	private String password;
 
+	public User() {
+		super();
+	}
+	
+	public User(Integer id, String name, String email, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
+
 	public Integer getId() {
 		return id;
 	}
