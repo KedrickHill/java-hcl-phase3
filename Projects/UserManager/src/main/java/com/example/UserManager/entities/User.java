@@ -3,17 +3,15 @@ package com.example.UserManager.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.Id;
 
-import org.springframework.data.annotation.Id;
 
 @Entity
-@Table(name="user")
-public class User {
+public class User { //The Entity of a User; What it is.
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Integer id;
 	
 	private String name;
 	
@@ -21,22 +19,11 @@ public class User {
 	
 	private String password;
 
-	public User() {
-		super();
-	}
-
-	public User(long iD, String name, String email, String password) {
-		this.id = iD;
-		this.name = name;
-		this.email = email;
-		this.password = password;
-	}
-
-	public long getiD() {
+	public Integer getiD() {
 		return id;
 	}
 
-	public void setiD(long iD) {
+	public void setiD(Integer iD) {
 		this.id = iD;
 	}
 
@@ -63,5 +50,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return (id.toString() + " " + name + " " + email + " " + password);
+	}
+	
+	
 
 }
