@@ -19,12 +19,12 @@ public class User { //The Entity of a User; What it is.
 	
 	private String password;
 
-	public Integer getiD() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setiD(Integer iD) {
-		this.id = iD;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
