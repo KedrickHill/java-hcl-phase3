@@ -45,5 +45,6 @@ public class UserController {
 		logger.info("Updating a User");
 		User user = userService.GetUserById(1);
 		return "update";
+	}
 
 }
