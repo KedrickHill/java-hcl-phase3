@@ -1,5 +1,6 @@
 package com.project.Feedback.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,17 +14,20 @@ public class Feedback {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private Integer id;
 
+	@Column(name="comments")
 	private String comments;
 
+	@Column(name="rating")
 	private Integer rating;
 
+	@Column(name="user")
 	private String user;
 
 	public Feedback() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Feedback(String comments, Integer rating, String user) {
