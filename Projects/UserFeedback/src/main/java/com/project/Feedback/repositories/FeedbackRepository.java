@@ -8,4 +8,5 @@ import com.project.Feedback.entities.Feedback;
 @Repository
 public interface FeedbackRepository extends CrudRepository<Feedback, Integer> {
 
+	public Feedback findByUser(String feedback);
 }
