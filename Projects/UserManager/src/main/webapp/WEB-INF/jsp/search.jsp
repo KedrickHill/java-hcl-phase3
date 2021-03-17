@@ -1,5 +1,9 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+    
 <html>
 <style>
 table {
@@ -8,6 +12,7 @@ table {
 
 th {
 	border-bottom: 1px solid black;
+	text-align: left;
 }
 </style>
 <body>
@@ -32,20 +37,23 @@ th {
 	<br />
 	<br />
 	<br />
-	<form action="update" method="get">
-		<fieldset data-role="collapsible">
-			<legend>Update This User?</legend>
-				<label for="id">New ID:</label>
-				<input type="text" name="id" id="name" value="${userSearch.id}" required/>
-				<label for="name">New Name:</label>
-				<input type="text" name="name" id="name" value="${userSearch.name}" required/>
-				<label for="email">New Email:</label> 
-				<input type="text" name="email" id="email" value="${userSearch.email}" required/>
-				<label for="password">New Password:</label>
-				<input type="text" name="password" id="password" value="${userSearch.password}" required/>
-				<input type="submit" value="Submit"/>
-		</fieldset>
-	</form>
-
+	<br />
+	<br />
+	<br />
+	<form:form action="update" method="post" commandName="update">
+		<h3>Update This User?</h3>
+			<p>User ID: ${userSearch.id}</p>
+			<input type="hidden" name="id" id="id" value="${userSearch.id}" required/>
+			<label for="name">New Name:</label><br/>
+			<input type="text" name="name" id="name" value="${userSearch.name}" required/><br/>
+			<label for="email">New Email:</label> <br/>
+			<input type="text" name="email" id="email" value="${userSearch.email}" required/><br/>
+			<label for="password">New Password:</label><br/>
+			<input type="text" name="password" id="password" value="${userSearch.password}" required/><br/><br/>
+			<input type="submit" value="Submit"/>
+	</form:form>
+	<br />
+	<br />
+	<a href="/">Return to Menu</a>
 </body>
 </html>

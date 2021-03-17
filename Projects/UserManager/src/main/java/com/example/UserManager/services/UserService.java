@@ -28,11 +28,10 @@ public class UserService {
 	public User GetUserById(Integer id) {
 		Optional<User> foundUser = userRepository.findById(id);
 		if(!foundUser.isPresent()) throw new UserNotFoundException();
-			
 		return foundUser.get();
 	}
 	
-	public void UpdateUser(User userToUpdate) {
-		userRepository.save(userToUpdate);
+	public User UpdateUser(User userToUpdate) {
+		return userRepository.save(userToUpdate);
 	}
 }

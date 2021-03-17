@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,7 +33,7 @@ public class UserController {
 		return "users";
 	}
 	 
-	@RequestMapping(value ="/search", method = RequestMethod.POST)
+	@RequestMapping(value ="/search/{id}", method = RequestMethod.POST)
 	public String searchUser(ModelMap model, @RequestParam("id") int id) {
 		logger.info("Searching for a user");
 		User user = userService.GetUserById(id);
@@ -39,12 +41,12 @@ public class UserController {
 		model.addAttribute("userSearch", user);
 		return "search";
 	}
-	
-	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String updateUser(ModelMap model) {
+
+	@PostMapping("search/update")
+	public String updateUser(ModelMap model, @ModelAttribute("update") User user) {
 		logger.info("Updating a User");
-		User user = userService.GetUserById(1);
+		userService.UpdateUser(user);
+		model.addAttribute("updatedUser", user);
 		return "update";
 	}
-
 }
