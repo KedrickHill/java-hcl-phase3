@@ -26,14 +26,14 @@ public class TestFormController {
 	
 	@PostMapping("/test_form")
 	public String submitTestForm(@RequestBody Feedback fb, ModelMap model) {
-			RestTemplate restTemplate = new RestTemplate();
+//			RestTemplate restTemplate = new RestTemplate();
 //			URL testForm = new URL("http://localhost:8090/feedbacks/{feedback}");
 //			ResponseEntity<String> response = restTemplate.getForEntity(testForm + "/7", String.class);
 //			ObjectMapper mapper = new ObjectMapper();
 //			JsonNode root = mapper.readTree(response.getBody());
 //			JsonNode name = root.path("name");
 //			model.addAttribute(name);
-			String result = restTemplate.getForObject("http://localhost:8090/feedbacks/{feedback}", String.class, 7); 
+//			String result = restTemplate.getForObject("http://localhost:8090/feedbacks/{feedback}", String.class, 7); 
 			return "testformjsp";
 	}
 		

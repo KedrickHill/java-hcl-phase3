@@ -22,9 +22,6 @@ class FeedbackApplicationTests {
 	
 //	@Autowired
 	
-	
-	
-
 	@Test
 	void shouldFindByUser() {
 		Feedback testFeedback = new Feedback("Dummy Test", 5, "dummy");
@@ -33,5 +30,4 @@ class FeedbackApplicationTests {
 		Feedback cmp = feedbackRepo.findByUser(testFeedback.getUser());
 		assertEquals(cmp.getUser(), testFeedback.getUser());
 	}
-
 }

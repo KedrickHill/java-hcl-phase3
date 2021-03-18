@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -15,13 +16,15 @@ public class Feedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
+	@NotNull
 	private Integer id;
 
 	@Column(name="comments")
 	private String comments;
 
 	@Column(name="rating")
-	private Integer rating;
+	@NotNull
+	private int rating;
 
 	@Column(name="user")
 	private String user;
