@@ -15,4 +15,8 @@ public class FeedbackService {
 	public Iterable<Feedback> GetAllFeedback() {
 		return feedbackRepo.findAll();
 	}
+	
+	public Feedback addNewFeedback(Feedback fb) {
+		return feedbackRepo.save(fb);
+	}
 }
