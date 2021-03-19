@@ -18,7 +18,7 @@ public class FeedbackController {
 	FeedbackService feedbackService;
 	
 	@GetMapping("/feedback")
-	public @ResponseBody Iterable<Feedback> getAllFeedbacks(){
+	public Iterable<Feedback> getAllFeedbacks(){
 		return feedbackService.GetAllFeedback();
 	}
 	
