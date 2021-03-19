@@ -8,5 +8,5 @@ import com.project.Authentication.entities.User;
 
 public interface AuthenticationRepository extends CrudRepository<User, Integer> {
 
-	public User findUserByName(String name);
+	public Optional<User> findUserByName(String name);
 }

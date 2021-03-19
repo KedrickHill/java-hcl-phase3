@@ -18,6 +18,4 @@ public class AuthenticationService {
 		if(found.isPresent()) return found.get();
 		else throw new UserNotFoundException();
 	}
-	
-	
 }
