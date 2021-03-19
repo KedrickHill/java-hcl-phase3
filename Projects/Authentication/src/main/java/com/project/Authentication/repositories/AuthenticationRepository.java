@@ -1,5 +1,12 @@
 package com.project.Authentication.repositories;
 
-public interface AuthenticationRepository {
+import java.util.Optional;
 
+import org.springframework.data.repository.CrudRepository;
+
+import com.project.Authentication.entities.User;
+
+public interface AuthenticationRepository extends CrudRepository<User, Integer> {
+
+	public User findUserByName(String name);
 }
