@@ -39,6 +39,10 @@ public class Feedback {
 		this.user = user;
 	}
 
+	/*
+	 * Needed the setters and getters to be able to add name and comments otherwise
+	 * they are nulls when entering the SQL DB
+	 */
 	public String getComments() {
 		return comments;
 	}
@@ -61,6 +65,11 @@ public class Feedback {
 
 	public void setUser(String user) {
 		this.user = user;
+	}
+	
+	@Override
+	public String toString() {
+		return "Feedback [id=" + id + ", comments=" + comments + ", rating=" + rating + ", user=" + user + "]";
 	}
 
 }

@@ -11,6 +11,8 @@
   <label for="comments">Comments:</label><br>
   <input type="text" id="comments" name="comments" placeholder="Doe"><br><br>
   <input type="submit" value="Submit">
+   <label for="rating">Rating:</label><br>
+  
   <input type="range" name="rating" id="rating" min="0" max="10" value="5" class="slider">
 </form:form> 
 </body>
