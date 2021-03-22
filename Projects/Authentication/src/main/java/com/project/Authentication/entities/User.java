@@ -8,14 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
-
 @Entity
 @Table(name = "user")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@NotNull
 	private Integer id;
 
@@ -35,12 +33,24 @@ public class User {
 		super();
 	}
 
-	public User(@NotNull Integer id, @NotNull String name, @NotNull String email, @NotNull String password) {
+	public User(@NotNull String name, @NotNull String password) {
+		this.name = name;
+		this.password = password;
+	}
+
+	public User(@NotNull String name, @NotNull String email, @NotNull String password) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
