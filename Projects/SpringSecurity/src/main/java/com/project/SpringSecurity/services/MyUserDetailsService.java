@@ -22,10 +22,6 @@ public class MyUserDetailsService implements UserDetailsService {
 		if(!user.isPresent()) throw new RuntimeException();
 		return user.get();
 	}
-	
-	public Boolean isValidLogin(String jspPass, String dbPass) {
-		return (jspPass.equals(dbPass)) ? true : false;
-	}
 
 	@Override
 	public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username)
