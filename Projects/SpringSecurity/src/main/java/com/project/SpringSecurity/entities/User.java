@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
-public class UserLogins {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -19,8 +19,15 @@ public class UserLogins {
 	private String email;
 	
 	private String password;
+	
+	private String role;
 
-	public UserLogins(String name, String email, String password) {
+	
+	public User() {
+		super();
+	}
+
+	public User(String name, String email, String password) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -49,6 +56,19 @@ public class UserLogins {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return "name=" + name + ", password=" + password;
 	}
 	
 	
