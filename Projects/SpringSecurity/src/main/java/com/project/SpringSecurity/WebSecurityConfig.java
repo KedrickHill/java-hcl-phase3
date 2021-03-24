@@ -35,8 +35,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('USER')");
-
 		http.authorizeRequests()
 				.antMatchers("/", "/index").permitAll()
 				.anyRequest().authenticated()
@@ -55,14 +53,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.csrf()
 				.disable();
 	}
-
-	/*
-	 * @Bean
-	 * 
-	 * @Override public UserDetailsService userDetailsService() { UserDetails user =
-	 * User.withDefaultPasswordEncoder().username("user").password("password").roles
-	 * ("USER") .build();
-	 * 
-	 * return new InMemoryUserDetailsManager(user); }
-	 */
 }
