@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -36,8 +37,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 //		http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('USER')");
 
-		http.authorizeRequests().antMatchers("/", "/index").permitAll().anyRequest().authenticated().and().formLogin()
-				.loginPage("/login").permitAll().and().logout().permitAll();
+		http.authorizeRequests()
+				.antMatchers("/", "/index").permitAll()
+				.anyRequest().authenticated()
+			.and()
+				.formLogin()
+				.loginPage("/login")
+				.defaultSuccessUrl("/welcome")
+				.failureUrl("/login?error=true")
+				.permitAll()
+			.and()
+				.logout()
+				.logoutSuccessUrl("/login?logout=true")
+				.invalidateHttpSession(true)
+				.permitAll()
+			.and()
+				.csrf()
+				.disable();
 	}
 
 	/*
