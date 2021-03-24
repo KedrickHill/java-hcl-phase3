@@ -4,7 +4,7 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<title>Spring Security Example</title>
+<title>Greetings!</title>
 </head>
 <body>
 	<h1>Welcome!</h1>
